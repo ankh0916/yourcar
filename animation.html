@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS Animation</title>
+		<style type="text/css">
+		
+		body
+		{
+		background-image: url(background.png);
+		background-repeat: no-repeat;
+		background-size: 1600px 760px;
+		background-attachment: fixed;		
+		}
+		#Text
+		{
+			width:100%;
+			position: relative;
+		}
+		{
+			margin: 0;
+			padding: 0;
+			background: #462854;
+		}
+		#center
+			{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);		
+			}
+		#startbut
+			{
+				width: 150px;
+				height: 150px;
+				margin:auto;
+				margin-top: 480px;
+				background: #e9c300;
+				border-radius: 50%;
+				color: #1f1e1b;
+				opacity: 0.7;
+				font-size: 30px;
+				font-weight: bold;
+				text-align: center;
+				line-height: 150px;
+				font-family:helvatica; 
+				text-transform: uppercase;
+				animation: animate 2s linear infinite;  
+				
+			}
+		@keyframes animate{
+			0%{	box-shadow: 0 0 0 0 rgba(233,195,0,.7);}
+			30%{box-shadow: 0 0 0 50px rgba(233,195,0,0);}
+			70%{box-shadow: 0 0 0 50px rgba(233,195,0,0);}
+			100%{box-shadow: 0 0 0 0 rgba(233,195,0,0);}
+							}
+
+		#garage {width:250px; height: 240px; background: black; opacity: 0;}
+		#topDoor {position: absolute; width: 250px; height: 120px; background: url(door.jpg); animation: topOpen 2s ease 1 forwards; opacity: 0; animation-play-state: paused; }
+		#bottomDoor {position: absolute; width: 250px; height: 120px; margin-top: 120px; background: url(door.jpg); animation: bottomOpen 2s ease 1 forwards; opacity: 0; animation-play-state: paused; }
+		#car1 {position: absolute; width:250px; opacity: 0; animation: quick 3s ease 1 forwards; animation-delay: 3s; opacity: 0; animation-play-state: paused;}
+
+		@keyframes topOpen
+		{
+			0% {height: 120px;}
+			100%{height: 0px;}
+		}
+		@keyframes bottomOpen			
+		{
+			0% {height: 120px; margin-top:120px;}
+			100%{height: 0px; margin-top: 240px;}
+		}
+		@keyframes quick
+		{
+			0% {height: 280px; margin-left: 30px; opacity: 0;}
+			60%{height: 280px; margin-left: -50px;transform: rotateY(50deg); opacity: 1;}
+			100%{height: 280px; margin-left: -1500px; opacity: 1;}
+		}
+
+		</style>
+		
+	</head>
+	<body>
+		<audio id="sound1">
+		<source src="startsound.mp3" type="audio/mpeg">
+	</audio>
+		<div id="title" style="color: white; text-align: center; font-size: 60px; margin-top: 10px;">What is your car?</div>
+		<div id="startbut">start</div>
+		<div id="center"> 
+			
+			<div id="garage">
+				<div id="topDoor"></div>
+				<div id="bottomDoor"></div>
+				<img id="car1" src="car2.gif">
+
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			startbut.onclick = 	function(){
+				startbut.style.opacity = 0.8;
+				garage.style.opacity = 1;
+				garage.style.animationPlayState = "running";
+				topDoor.style.opacity = 1;
+				topDoor.style.animationPlayState = "running";
+				bottomDoor.style.opacity = 1;
+				bottomDoor.style.animationPlayState = "running";
+				car1.style.animationPlayState = "running";
+				sound1.currentTime = 0;
+				sound1.play();
+			}
+		</script>
+		
+	</body>
+</html>
